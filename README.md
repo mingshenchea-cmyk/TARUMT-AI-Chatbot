@@ -64,8 +64,8 @@ TARUMT AI Chatbot/
 **1. Clone the repository**
 
 ```bash
-git clone <your-repo-url>
-cd "TARUMT AI Chatbot"
+git clone https://github.com/mingshenchea-cmyk/TARUMT-AI-Chatbot
+cd TARUMT-AI-Chatbot
 ```
 
 **2. Create a virtual environment (recommended)**
@@ -205,3 +205,41 @@ The top 3 chunks are sent as context to Phi-4, which is instructed to answer onl
 
 **Answers feel outdated**
 > Re-run `python main.py ingest` to re-crawl and re-index the latest content from the TARUMT websites.
+
+---
+
+## 🔄 Customizing Models
+
+The default models in `config.py` are **suggestions only** — you can swap them for any compatible alternative:
+
+**Embedding model** (`EMBED_MODEL`):
+- Current: `sentence-transformers/all-MiniLM-L6-v2` (lightweight, fast)
+- Alternatives: Any model on [HuggingFace Sentence Transformers](https://huggingface.co/sentence-transformers)
+  - `all-mpnet-base-v2` — better accuracy, slower
+  - `paraphrase-multilingual-MiniLM-L12-v2` — for multilingual content
+
+**Reranking model** (`RERANK_MODEL`):
+- Current: `cross-encoder/ms-marco-MiniLM-L-6-v2` (fast, accurate)
+- Alternatives: Any cross-encoder from HuggingFace
+  - `cross-encoder/ms-marco-MiniLM-L-12-v2` — higher accuracy, slower
+  - `cross-encoder/mmarco-mMiniLMv2-L12-H384-v1` — multilingual
+
+**LLM API** (`PHI4_API_URL` / `PHI4_MODEL`):
+- Current: Local Phi-4 endpoint
+- Alternatives: Any OpenAI-compatible API
+  - Local: Ollama, LM Studio, vLLM, text-generation-webui
+  - Cloud: OpenAI, Anthropic (via adapters), Azure OpenAI
+
+> Just update the values in `src/config.py` — no code changes needed.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — you are free to use, modify, and distribute it.
+
+See the [LICENSE](LICENSE) file for details.
+
+---
+
+**Made with ❤️ for TARUMT students and staff**
