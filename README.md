@@ -1,4 +1,4 @@
-# 🎓 TARUMT AI Chatbot
+# 🎓 TAR UMT Website AI Chatbot (RAG)
 
 A RAG (Retrieval-Augmented Generation) chatbot that answers questions about **Tunku Abdul Rahman University of Management and Technology (TARUMT)** — powered by a local Phi-4 model, ChromaDB, and LangChain.
 
