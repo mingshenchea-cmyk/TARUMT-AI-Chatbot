@@ -239,7 +239,3 @@ The default models in `config.py` are **suggestions only** — you can swap them
 This project is licensed under the **MIT License** — you are free to use, modify, and distribute it.
 
 See the [LICENSE](LICENSE) file for details.
-
----
-
-**Made with ❤️ for TARUMT students and staff**
