@@ -1,4 +1,4 @@
-# 🎓 TAR UMT Website AI Chatbot (RAG)
+# TAR UMT Website AI Chatbot (RAG)
 
 A RAG (Retrieval-Augmented Generation) chatbot that answers questions about **Tunku Abdul Rahman University of Management and Technology (TARUMT)** — powered by a local Phi-4 model, ChromaDB, and LangChain.
 
@@ -9,7 +9,7 @@ A RAG (Retrieval-Augmented Generation) chatbot that answers questions about **Tu
 
 ---
 
-## 📋 Overview
+## Overview
 
 This chatbot crawls and indexes the official TARUMT websites, then lets users ask natural language questions about programmes, admissions, facilities, campuses, and more. It does **not** call any external AI API — it runs entirely against a self-hosted Phi-4 endpoint on your local network.
 
@@ -29,7 +29,7 @@ At query time: BM25 + Vector retrieval → Cross-encoder reranking → Phi-4 ans
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 TARUMT AI Chatbot/
@@ -49,7 +49,7 @@ TARUMT AI Chatbot/
 
 ---
 
-## ⚙️ Prerequisites
+## Prerequisites
 
 - **Python 3.10+**
 - A running **Phi-4 API server** on your local network (OpenAI-compatible `/v1/chat/completions` endpoint)
@@ -59,7 +59,7 @@ TARUMT AI Chatbot/
 
 ---
 
-## 🚀 Setup
+## Setup
 
 **1. Clone the repository**
 
@@ -92,7 +92,7 @@ PHI4_API_URL = "http://<your-server-ip>:<port>/v1/chat/completions"
 
 ---
 
-## 📖 Usage
+## Usage
 
 All commands are run from inside the `src/` folder:
 
@@ -116,7 +116,7 @@ Crawls all 25 TARUMT domains and saves every discovered URL to `tarumt_urls.txt`
 python main.py crawl
 ```
 
-> ⏱️ This can take a while depending on network speed.
+> This can take a while depending on network speed.
 
 ### Step 3 — Ingest *(run once)*
 
@@ -126,7 +126,7 @@ Scrapes page content, chunks it by semantic meaning, and embeds everything into 
 python main.py ingest
 ```
 
-> ⏱️ This is the slowest step — embedding thousands of chunks takes several minutes on CPU.  
+> This is the slowest step — embedding thousands of chunks takes several minutes on CPU.  
 > You only need to re-run this if the website content has changed significantly.
 
 ### Step 4 — Chat
@@ -153,7 +153,7 @@ Press `Ctrl+C` to exit.
 
 ---
 
-## 🔧 Configuration
+## Configuration
 
 All settings live in `src/config.py`:
 
@@ -170,7 +170,7 @@ All settings live in `src/config.py`:
 
 ---
 
-## 🧠 How It Works
+## How It Works
 
 When you ask a question, the chatbot goes through three stages:
 
@@ -192,7 +192,7 @@ The top 3 chunks are sent as context to Phi-4, which is instructed to answer onl
 
 ---
 
-## 🛠️ Troubleshooting
+## Troubleshooting
 
 **`Connection refused` when chatting**
 > Your Phi-4 server is not running or the `PHI4_API_URL` in `config.py` is wrong. Verify the IP and port.
@@ -208,7 +208,7 @@ The top 3 chunks are sent as context to Phi-4, which is instructed to answer onl
 
 ---
 
-## 🔄 Customizing Models
+## Customizing Models
 
 The default models in `config.py` are **suggestions only** — you can swap them for any compatible alternative:
 
@@ -234,7 +234,7 @@ The default models in `config.py` are **suggestions only** — you can swap them
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** — you are free to use, modify, and distribute it.
 
